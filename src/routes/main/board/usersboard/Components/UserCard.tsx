@@ -21,7 +21,9 @@ const genderColors: { [key: string]: string } = {
  
 };
 
-const UserCard: React.FC<UserCardProps> = ({ userId,nom_et_prenom, phone,type_bac,ville_origine,dominantForceTemperament,dominantWeaknessTemperament,temperament,skills,authentificationCode, genre }) => {
+const UserCard: React.FC<UserCardProps> = ({ nom_et_prenom, phone,type_bac, genre }) => {
+
+ 
   return (
     <Card sx={{ minWidth: 200 }}>
       <CardContent sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>

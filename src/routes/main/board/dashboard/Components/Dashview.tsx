@@ -64,8 +64,7 @@ export const Dashview = () => {
 
   const {
     data: dataUsersNotTest,
-    isLoading: isLoadingUsersNotTest,
-    isError: isErrorUsersNotTest,
+ 
   } = useQuery(["users-which-not-test-list"], fetchUsersWhichNotTest);
 
   const {
