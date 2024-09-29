@@ -1,0 +1,19 @@
+.temperamentsview {
+  display: flex;
+  flex-direction: column;
+}
+.temperamentsview .body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  width: 100%;
+}
+
+.temperamentsview .body .app-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  background-color: #f8f9fa;
+}

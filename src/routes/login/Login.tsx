@@ -17,13 +17,13 @@ const Login = () => {
   const [userSessionMod, setUserSessionMod] = useState<string>(userSession);
   const [tokenMod, setTokenMod] = useState<string>(token);
   const [userId, setUserId] = useState<string>(userIdLocal);
-  const [errorMessage, setErrorMessage] = useState('');
- 
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     localStorage.setItem("user", userSessionMod);
     localStorage.setItem("token", tokenMod);
     localStorage.setItem("userId", userId);
-  }, [userSessionMod, tokenMod,userId]);
+  }, [userSessionMod, tokenMod, userId]);
 
   const mutation = useMutation({
     mutationFn: (admin: Omit<Admin, "token">) =>
@@ -38,8 +38,7 @@ const Login = () => {
         setUserId(data.data.id);
         setUserSessionMod("connected");
         setTokenMod(data.token);
-        window.location.href= "/";
-       
+        window.location.href = "/";
       } else {
         setErrorMessage(data.message);
       }
@@ -52,7 +51,7 @@ const Login = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setErrorMessage('');
+    setErrorMessage("");
     setIsLoading(true);
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
@@ -68,7 +67,7 @@ const Login = () => {
         <img src={LOGO} alt="" />
         <span>uccess</span>
       </div>
-      <h2>Bienvenue das la famille</h2>
+      <h2>Bienvenue dans la famille</h2>
       <form onSubmit={handleSubmit}>
         <TextField
           width={20}
@@ -106,10 +105,7 @@ const Login = () => {
             <label htmlFor="checkbox">Rester connecté</label>
           </div>
           <Link to="#">Mot de passe oublié?</Link>
-           
         </div>
-
-      
       </form>
     </div>
   );

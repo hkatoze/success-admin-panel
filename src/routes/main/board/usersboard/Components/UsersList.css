@@ -1,0 +1,54 @@
+.users-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-list th,
+.users-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.users-list td img {
+  height: 25px;
+  width: 25px;
+}
+
+.users-list td button {
+  border: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.users-list th {
+  background-color: #f4f4f4;
+}
+
+.users-list tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+}
+
+.status.active {
+  background-color: #28a745;
+}
+
+.status.inactive {
+  background-color: #dc3545;
+}
+
+.operation-icons {
+  display: flex;
+  align-items: center;
+}
+
+.operation-icons svg {
+  margin-right: 10px;
+  cursor: pointer;
+}

@@ -62,10 +62,10 @@ export const Dashview = () => {
     isError: isErrorAllUsers,
   } = useQuery(["all-users-list"], fetchAllUsers);
 
-  const {
-    data: dataUsersNotTest,
- 
-  } = useQuery(["users-which-not-test-list"], fetchUsersWhichNotTest);
+  const { data: dataUsersNotTest } = useQuery(
+    ["users-which-not-test-list"],
+    fetchUsersWhichNotTest
+  );
 
   const {
     data: dataAllTestResult,
@@ -113,9 +113,8 @@ export const Dashview = () => {
     ],
   };
 
- 
   return (
-    <div className="usersview">
+    <div className="dashview">
       <Header title="Dashboard" subtitle="Bienvenue sur Success Admin" />
 
       <div className="body">
@@ -144,7 +143,7 @@ export const Dashview = () => {
                         <img src={ERROR_ICON} alt="" />
                       </div>
                     )}
-                    <Pie  data={pieData} />
+                    <Pie data={pieData} />
                   </Box>
                 </Paper>
               </Grid>

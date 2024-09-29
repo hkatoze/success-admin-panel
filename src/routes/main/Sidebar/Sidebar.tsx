@@ -28,7 +28,7 @@ const Sidebar: FunctionComponent = () => {
 
         <MenuListItem
           icon={<ImBooks className="icon" />}
-          link="/mainpage/booksboard/booksview"
+          link="/mainpage/temperamentsboard/temperamentsView"
           isSelected={selectedMenuItem === 2}
           onClick={() => setSelectedMenuItem(2)}
         >

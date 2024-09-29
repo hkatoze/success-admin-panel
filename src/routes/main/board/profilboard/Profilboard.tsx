@@ -13,14 +13,12 @@ const userId = localStorage.getItem("userId") || "";
 const Profilboard = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const [username, setUsername] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [firstname, setFirstname] = useState("");
+
   const [emailAddress, setEmailAddress] = useState("");
-  const [job, setJob] = useState("");
+  const [password, setPassword] = useState("");
   const queryClient = useQueryClient();
   const fetchAdminInfos = () => {
-    return axios.get(`${endpoint}/api/users/${userId}`, {
+    return axios.get(`${endpoint}/api/administrateurs/${userId}`, {
       headers: headers,
     });
   };
@@ -54,20 +52,11 @@ const Profilboard = () => {
   const handleOnChange = (event: FormEvent<HTMLInputElement>) => {
     const { name, value } = event.currentTarget;
 
-    if (name === "username") {
-      setUsername(value);
-    }
-    if (name === "lastname") {
-      setLastname(value);
-    }
-    if (name === "firstname") {
-      setFirstname(value);
-    }
     if (name === "emailAddress") {
       setEmailAddress(value);
     }
-    if (name === "job") {
-      setJob(value);
+    if (name === "password") {
+      setPassword(value);
     }
   };
 
@@ -76,28 +65,20 @@ const Profilboard = () => {
     setLoading(true);
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
-    const username: string = formData.get("username") as string;
-    const firstname: string = formData.get("firstname") as string;
-    const lastname: string = formData.get("lastname") as string;
-    const job: string = formData.get("job") as string;
+
+    const password: string = formData.get("password") as string;
     const emailAddress: string = formData.get("emailAddress") as string;
 
     const newUser = {
-      username: username,
-      firstname: firstname,
-      lastname: lastname,
       emailAddress: emailAddress,
-      role: job,
+      password: password,
     };
 
     mutation.mutate(newUser);
   };
   useEffect(() => {
     if (!isLoading && !isError && data?.data?.data) {
-      setUsername(data.data.data.username);
-      setLastname(data.data.data.lastname);
-      setFirstname(data.data.data.firstname);
-      setJob(data.data.data.role);
+      setPassword(data.data.data.role);
       setEmailAddress(data.data.data.emailAddress);
     }
   }, [isLoading, isError, data]);
@@ -135,49 +116,7 @@ const Profilboard = () => {
         >
           <div className="infos">
             <div>
-              <h3>Firstname:</h3>
-              {isEdit ? (
-                <input
-                  type="text"
-                  name="firstname"
-                  value={firstname}
-                  onChange={handleOnChange}
-                  autoFocus
-                />
-              ) : (
-                <span>{firstname}</span>
-              )}
-            </div>
-            <div>
-              <h3>Lastname:</h3>
-
-              {isEdit ? (
-                <input
-                  type="text"
-                  name="lastname"
-                  value={lastname}
-                  onChange={handleOnChange}
-                />
-              ) : (
-                <span>{lastname}</span>
-              )}
-            </div>
-            <div>
-              <h3>Username:</h3>
-
-              {isEdit ? (
-                <input
-                  type="text"
-                  name="username"
-                  value={username}
-                  onChange={handleOnChange}
-                />
-              ) : (
-                <span>{username}</span>
-              )}
-            </div>
-            <div>
-              <h3>Email address:</h3>
+              <h3>Adresse email:</h3>
 
               {isEdit ? (
                 <input
@@ -191,17 +130,17 @@ const Profilboard = () => {
               )}
             </div>
             <div>
-              <h3>Job:</h3>
+              <h3>Mot de passe:</h3>
 
               {isEdit ? (
                 <input
                   type="text"
-                  name="job"
-                  value={job}
+                  name="password"
+                  value={password}
                   onChange={handleOnChange}
                 />
               ) : (
-                <span>{job}</span>
+                <span>{password}</span>
               )}
             </div>
           </div>

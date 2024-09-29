@@ -16,7 +16,9 @@ import Helpboard from "./routes/main/board/helpboard/Helpboard";
 import { Usersboard } from "./routes/main/board/usersboard/Usersboard";
 import { Dashview } from "./routes/main/board/dashboard/Components/Dashview";
 import { Dashboard } from "./routes/main/board/dashboard/Dashboard";
-
+import { TemperamentsBoard } from "./routes/main/board/temperamenstboard/TemperamentsBoard";
+import TemperamentView from "./routes/main/board/temperamenstboard/Components/TemperamentView";
+import TemperamentsView from "./routes/main/board/temperamenstboard/Components/TemperamentsView";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,17 @@ const router = createBrowserRouter([
           {
             path: "usersboard",
             element: <Usersboard />,
+          },
+          {
+            path: "temperamentsboard",
+            element: <TemperamentsBoard />,
+            children: [
+              { path: "temperamentsView", element: <TemperamentsView /> },
+              {
+                path: ":temperamentsView/:temperamentId",
+                element: <TemperamentView />,
+              },
+            ],
           },
 
           { path: "profilboard", element: <Profilboard /> },

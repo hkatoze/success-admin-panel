@@ -1,0 +1,89 @@
+.temperamentview {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.temperamentview .header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.temperamentview .back-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #f57c00;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.temperamentview .title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #3f51b5;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.temperamentview .content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperamentview .description h2 {
+  margin-top: 0;
+}
+
+.temperamentview .recommendations,
+.temperamentview .description {
+  width: 45%;
+}
+
+.temperamentview .recommendations h2,
+.temperamentview .description h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.temperamentview .options,
+.temperamentview .description div {
+  background-color: #f0f4c3;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.temperamentview .options h3 {
+  margin: 10px 0;
+}
+
+.temperamentview .option {
+  margin: 5px 0;
+}
+
+.temperamentview .footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.temperamentview .quit-button,
+.save-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.temperamentview .quit-button {
+  background-color: #d32f2f;
+}
+
+.temperamentview .save-button {
+  background-color: #3f51b5;
+}

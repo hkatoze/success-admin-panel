@@ -1,14 +1,16 @@
 import { Outlet } from "react-router-dom";
 
 import "./Usersboard.css";
-import { UsersView } from "./Components/UsersView";
+import UsersView from "./Components/UsersView";
 
 export const Usersboard = () => {
-  return  <div className="usersboard">
-  {location.pathname === "/mainpage/usersboard" ? (
-    <UsersView />
-  ) : (
-    <Outlet />
-  )}
-</div>
+  return (
+    <div className="usersboard">
+      {location.pathname === "/mainpage/usersboard" ? (
+        <UsersView />
+      ) : (
+        <Outlet />
+      )}
+    </div>
+  );
 };
