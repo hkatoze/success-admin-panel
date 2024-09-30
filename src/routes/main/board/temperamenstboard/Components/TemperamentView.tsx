@@ -3,11 +3,11 @@ import "./TemperamentView.css";
 import axios from "axios";
 import { endpoint, headers } from "../../../../../constants";
 import { useNavigate, useParams } from "react-router-dom";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 
 const TemperamentView: React.FC = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
+
   const { temperamentId } = useParams();
 
   const fetchTemperamentById = () => {
@@ -15,7 +15,7 @@ const TemperamentView: React.FC = () => {
       headers: headers,
     });
   };
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["temperament-by-id"],
     queryFn: fetchTemperamentById,
   });

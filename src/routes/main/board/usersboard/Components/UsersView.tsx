@@ -13,9 +13,7 @@ const UsersView: React.FC = () => {
 
   const {
     data: dataAllUsers,
-    isLoading: isLoadingAllUsers,
-    isError: isErrorAllUsers,
-    error: errorAllUsers, // Capture l'erreur pour un affichage détaillé
+    // Capture l'erreur pour un affichage détaillé
   } = useQuery(["all-users-list"], fetchAllUsers);
 
   const [filteredMembers, setFilteredMembers] = useState<UserModel[]>([]);
