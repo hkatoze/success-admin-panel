@@ -9,13 +9,10 @@ interface HeaderProps {
   title?: string;
   subtitle?: string;
   custumHeader?: React.ReactNode;
-  onFilter: (query: string) => void;
 }
-const Header = ({ title, subtitle, custumHeader, onFilter }: HeaderProps) => {
+const Header = ({ title, subtitle, custumHeader }: HeaderProps) => {
   const navigate = useNavigate();
-  const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onFilter(event.target.value);
-  };
+
   return (
     <div className="headerSection flex">
       {!title && !subtitle ? (
@@ -34,7 +31,7 @@ const Header = ({ title, subtitle, custumHeader, onFilter }: HeaderProps) => {
         </div>
       )}
       <div className="searchBar flex">
-        <input type="text" placeholder="Search" onChange={handleFilter} />
+        <input type="text" placeholder="Search" />
         <BiSearchAlt className="icon" />
       </div>
 

@@ -22,6 +22,8 @@ const TemperamentCard: React.FC<TemperamentCardProps> = ({
 }) => {
   const filieres = filiereRecommandee.split(",");
 
+  console.log(`${id}  ${description}`);
+
   return (
     <Link to={link}>
       <div className="temperament-card" style={{ borderLeftColor: "blue" }}>

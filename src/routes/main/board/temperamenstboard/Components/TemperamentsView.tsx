@@ -14,9 +14,7 @@ const TemperamentsView: React.FC = () => {
 
   const {
     data: dataAllTemperaments,
-    isLoading: isLoadingAllTemperaments,
-    isError: isErrorAllTemperaments,
-    error: errorAllTemperaments, // Capture l'erreur pour un affichage détaillé
+    // Capture l'erreur pour un affichage détaillé
   } = useQuery(["all-temperaments-list"], fetchAllTemperaments);
 
   const [filteredTemperaments, setFilteredTemperaments] = useState<
